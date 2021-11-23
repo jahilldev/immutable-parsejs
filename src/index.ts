@@ -1,23 +1,13 @@
-import { Seq, Record } from 'immutable';
+import { Seq, Record, List } from 'immutable';
 
 /* -----------------------------------
  *
- * IObject
+ * Overloads
  *
  * -------------------------------- */
 
-interface IObject {
-  [key: string]: unknown;
-}
-
-/* -----------------------------------
- *
- * Types
- *
- * -------------------------------- */
-
-type IValue = IObject | IObject[];
-type IData = IObject | IObject[] | undefined;
+function parseJs<T extends object>(data: T): Record<T>;
+function parseJs<T extends object>(data: T): List<Record<T>>;
 
 /* -----------------------------------
  *
@@ -25,40 +15,18 @@ type IData = IObject | IObject[] | undefined;
  *
  * -------------------------------- */
 
-function parseJs(value: IValue) {
-  const data = getDataObject(value);
-
+function parseJs<T extends object>(data: T) {
   if (!data) {
-    return data;
+    return;
   }
 
-  if (Array.isArray(data)) {
-    return Seq(data).map(parseJs).toList();
+  if (!Array.isArray(data)) {
+    const record = Record(data);
+
+    return new record(Seq<any>(data).map(parseJs));
   }
 
-  const record = Record(data);
-
-  return new record(Seq(data).map(parseJs));
-}
-
-/* -----------------------------------
- *
- * getDataObject
- *
- * -------------------------------- */
-
-function getDataObject(value: IValue): IData {
-  let result: IObject | IObject[] | undefined;
-
-  if (value === null) {
-    return result;
-  }
-
-  if (typeof value === 'object') {
-    result = value;
-  }
-
-  return result;
+  return Seq<any>(data).map(parseJs).toList();
 }
 
 /* -----------------------------------

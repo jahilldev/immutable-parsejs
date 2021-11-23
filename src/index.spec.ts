@@ -20,14 +20,17 @@ describe('parseJs()', () => {
   it('returns immutable data from object', () => {
     const result = parseJs(testObject);
 
-    const testing = Record({ isActive: true });
+    // const testing = Record({ isActive: true });
 
-    const smoosh: any = { hello: true };
-    const value: any = new testing(smoosh);
+    // const value1 = new testing({ isActive: true });
+    // const value2 = value1.set('isActive', true);
 
-    value.set('goodbye', true);
+    const value1 = result.set('isActive', true);
+    const value2 = result.set('isActive', false);
 
-    console.log('VALUE', value);
+    result.testing = 1;
+
+    console.log('MATCH', value1 === value2);
 
     // // const user = result.find((user) => user.isActive);
 
