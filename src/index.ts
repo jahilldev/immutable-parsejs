@@ -6,7 +6,7 @@ import { Seq, Record, List } from 'immutable';
  *
  * -------------------------------- */
 
-function parseJs<T extends object[]>(data: T): List<Record<T>>;
+function parseJs<T extends object>(data: T[]): List<Record<T>>;
 function parseJs<T extends object>(data: T): Record<T> & Readonly<T>;
 
 /* -----------------------------------
