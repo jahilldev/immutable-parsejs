@@ -1,5 +1,3 @@
-import { Record } from 'immutable';
-
 /* -----------------------------------
  *
  * Subject
@@ -30,6 +28,6 @@ describe('parseJs()', () => {
 
     console.log(result);
 
-    expect(result.length).toEqual(testArray.length);
+    expect(result.size).toEqual(testArray.length);
   });
 });
