@@ -1,17 +1,19 @@
 {
-  "name": "immutable-parsejson",
+  "name": "immutable-parsejs",
   "version": "1.4.7",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "repository": "git@github.com:jhukdev/immutable-parsejson.git",
+  "repository": "git@github.com:jhukdev/immutable-parsejs.git",
   "author": "James Hill <contact@jameshill.dev>",
   "license": "MIT",
   "private": false,
   "keywords": [
     "immutable",
     "parse",
-    "json",
-    "object"
+    "array",
+    "object",
+    "record",
+    "list"
   ],
   "files": [
     "dist"
