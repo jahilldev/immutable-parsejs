@@ -13,7 +13,7 @@ import { parseJs } from './index';
  * -------------------------------- */
 
 describe('parseJs()', () => {
-  const testData = { userId: 1, firstName: 'John', lastName: 'Smith' };
+  const testData = { userId: 1, firstName: 'John', lastName: 'Smith', categories: [{ id: 1 }] };
   const testArray = Array(10).map((_, index) => ({ ...testData, userId: index }));
 
   it('returns Record from object', () => {
@@ -25,8 +25,6 @@ describe('parseJs()', () => {
 
   it('returns List<Record> from array of objects', () => {
     const result = parseJs(testArray);
-
-    console.log(result);
 
     expect(result.size).toEqual(testArray.length);
   });
