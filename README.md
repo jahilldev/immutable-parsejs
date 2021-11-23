@@ -12,13 +12,13 @@ This package (**389 bytes** GZipped) exports a single function, `parseJs`, that 
 Install with Yarn:
 
 ```bash
-$ yarn add preactement
+$ yarn add immutable-parsejs
 ```
 
 Install with NPM:
 
 ```bash
-$ npm i preactement
+$ npm i immutable-parsejs
 ```
 
 # Using parseJs()
