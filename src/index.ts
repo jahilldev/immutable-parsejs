@@ -28,9 +28,9 @@ function parseJs<T extends object>(data: T) {
     return Seq<any>(data).map(parseJs).toList();
   }
 
-  const record = Record(data);
+  const Factory = Record(data);
 
-  return new record(Seq<any>(data).map(parseJs));
+  return new Factory(Seq<any>(data).map(parseJs));
 }
 
 /* -----------------------------------
