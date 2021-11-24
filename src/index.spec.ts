@@ -19,10 +19,11 @@ describe('parseJs()', () => {
   const testArray = [1, 2, 3].map((userId) => ({ ...testData, userId }));
   const testMap = new Map([[0, testData]]);
 
-  it('returns undefined if provided value is falsey', () => {
-    const result = parseJs(null);
+  it('returns argument value if invalid type', () => {
+    const values = [null, void 0];
+    const results = values.map((value) => parseJs(value));
 
-    expect(result).toEqual(void 0);
+    expect(results).toEqual(values);
   });
 
   it('returns a Record from an object', () => {
