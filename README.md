@@ -34,11 +34,16 @@ const dataSet = [
 ];
 
 const result = parseJs(dataSet); // <-- List<Record>;
-const firstUser = result.get(0);
+const { firstName } = result.get(0);
 
 /*[...]*/
 
-console.log(firstUser.get('firstName')); // <-- John
+console.log(firstName); // <-- John
+
+/*[...]*/
+
+console.log(result === result.setIn([0, 'firstName'], 'John')); // <-- true
+console.log(result === result.setIn([0, 'firstName'], 'Sam')); // <-- false
 ```
 
 Now your data set is wrapped recursively, objects will now be `Record`'s, and arrays will be `List`'s.

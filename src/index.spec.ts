@@ -25,7 +25,9 @@ describe('parseJs()', () => {
 
   it('returns List<Record> from array of objects', () => {
     const result = parseJs(testArray);
+    const { userId } = result.get(-1);
 
     expect(result.size).toEqual(testArray.length);
+    expect(userId).toEqual(testArray[1].userId);
   });
 });

@@ -1,6 +1,6 @@
 {
   "name": "immutable-parsejs",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": "git@github.com:jhukdev/immutable-parsejs.git",
@@ -13,7 +13,9 @@
     "array",
     "object",
     "record",
-    "list"
+    "list",
+    "convert",
+    "data"
   ],
   "files": [
     "dist"
