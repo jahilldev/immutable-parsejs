@@ -24,13 +24,13 @@ function parseJs<T extends object>(data: T) {
     return data;
   }
 
-  if (!Array.isArray(data)) {
-    const record = Record(data);
-
-    return new record(Seq<any>(data).map(parseJs));
+  if (Array.isArray(data)) {
+    return Seq<any>(data).map(parseJs).toList();
   }
 
-  return Seq<any>(data).map(parseJs).toList();
+  const record = Record(data);
+
+  return new record(Seq<any>(data).map(parseJs));
 }
 
 /* -----------------------------------
