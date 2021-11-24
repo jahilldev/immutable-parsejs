@@ -23,6 +23,7 @@ describe('parseJs()', () => {
     const result = parseJs(testData);
 
     expect(result instanceof Record).toBe(true);
+    expect(result.categories instanceof List).toBe(true);
     expect(result.get('firstName')).toEqual(testData.firstName);
     expect(result.firstName).toEqual(testData.firstName);
   });
