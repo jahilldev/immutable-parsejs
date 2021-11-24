@@ -15,6 +15,7 @@ import { parseJs } from './index';
 describe('parseJs()', () => {
   const testData = { userId: 1, firstName: 'John', lastName: 'Smith', categories: [{ id: 1 }] };
   const testArray = [1, 2].map((_, index) => ({ ...testData, userId: index }));
+  const testMap = new Map([[0, testData]]);
 
   it('returns a Record from an object', () => {
     const result = parseJs(testData);
@@ -29,5 +30,13 @@ describe('parseJs()', () => {
 
     expect(result.size).toEqual(testArray.length);
     expect(userId).toEqual(testArray[testArray.length - 1].userId);
+  });
+
+  it('returns a List<Record> from a Map of objects', () => {
+    const result = parseJs(testMap);
+    const { userId } = result.get(0);
+
+    expect(result.size).toEqual(testMap.size);
+    expect(userId).toEqual(testMap.get(0).userId);
   });
 });

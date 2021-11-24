@@ -23,7 +23,7 @@ $ npm i immutable-parsejs
 
 # Using parseJs()
 
-Once you have your data structure, either an object, or an array of objects, you can pass that into the `parseJs` function:
+Once you have your data structure, either an object, or an array/map of objects, you can pass that into the `parseJs` function:
 
 ```typescript
 import { parseJs } from 'immutable-parsejs';
