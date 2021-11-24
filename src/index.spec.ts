@@ -16,8 +16,14 @@ import { parseJs } from './index';
 
 describe('parseJs()', () => {
   const testData = { userId: 1, firstName: 'John', lastName: 'Smith', categories: [{ id: 1 }] };
-  const testArray = [1, 2].map((_, index) => ({ ...testData, userId: index }));
+  const testArray = [1, 2, 3].map((userId) => ({ ...testData, userId }));
   const testMap = new Map([[0, testData]]);
+
+  it('returns undefined if provided value is falsey', () => {
+    const result = parseJs(null);
+
+    expect(result).toEqual(undefined);
+  });
 
   it('returns a Record from an object', () => {
     const result = parseJs(testData);
