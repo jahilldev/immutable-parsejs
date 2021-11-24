@@ -17,7 +17,7 @@ function parseJs<T extends object>(data: T): Record<T> & Readonly<T>;
 
 function parseJs<T extends object>(data: T) {
   if (!data) {
-    return;
+    return void 0;
   }
 
   if (typeof data !== 'object') {
