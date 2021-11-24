@@ -22,7 +22,7 @@ describe('parseJs()', () => {
   it('returns undefined if provided value is falsey', () => {
     const result = parseJs(null);
 
-    expect(result).toEqual(undefined);
+    expect(result).toEqual(void 0);
   });
 
   it('returns a Record from an object', () => {
