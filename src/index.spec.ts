@@ -40,6 +40,7 @@ describe('parseJs()', () => {
     const { userId } = result.get(-1);
 
     expect(result instanceof List).toBe(true);
+    expect(result.get(0) instanceof Record).toBe(true);
     expect(result.size).toEqual(testArray.length);
     expect(userId).toEqual(testArray[testArray.length - 1].userId);
   });
@@ -49,6 +50,7 @@ describe('parseJs()', () => {
     const { userId } = result.get(0);
 
     expect(result instanceof List).toBe(true);
+    expect(result.get(0) instanceof Record).toBe(true);
     expect(result.size).toEqual(testMap.size);
     expect(userId).toEqual(testMap.get(0).userId);
   });
