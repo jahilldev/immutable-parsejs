@@ -3,7 +3,7 @@
   "version": "1.5.3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "repository": "git@github.com:jahill-dev/immutable-parsejs.git",
+  "repository": "git@github.com:jahilldev/immutable-parsejs.git",
   "author": "James Hill <contact@jameshill.dev>",
   "license": "MIT",
   "private": false,
